@@ -1,0 +1,21 @@
+{
+  "name": "reactdemoproject",
+  "version": "1.0.0",
+  "description": "a demo react project to practice best practices",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html"
+  },
+  "author": "priyank rai",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.2",
+    "process": "^0.11.10"
+  }
+}
