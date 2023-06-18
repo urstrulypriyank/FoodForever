@@ -6,14 +6,14 @@ import Footer from "./src/components/Footer";
 
 function AppLayout() {
   return (
-    <div className=" h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden overflow-y-scroll z-0">
+    <div className=" h-screen snap-y snap-mandatory overflow-scroll overflow-y-scroll z-0">
       <div className="snap-center  ">
         <Navbar />
       </div>
-      <div className="snap-center  ">
+      <div className="snap-start  ">
         <Body />
       </div>
-      <div className="snap-center  ">
+      <div className="snap-center backdrop-blur-lg h-screen w-screen -z-10 ">
         <Footer />
       </div>
     </div>
