@@ -5,9 +5,9 @@ import Body from "./src/components/Body";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="snap-y">
       <Navbar className="" />
-      <Body className=""/>
+      <Body className="snap-center" />
     </div>
   );
 }

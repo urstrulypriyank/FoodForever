@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../css/navbar.css";
-import { ICON_URL, BG_IMG_URL } from "../../constant";
-
+import Wallpaper from "../../assets/images/Wallpaper.webp";
+import Logo from "../../assets/icons/logo.png";
 const Navbar = () => {
   return (
     <div style={styles}>
@@ -10,7 +10,7 @@ const Navbar = () => {
           Explore the Food That You Love Forever
         </span>
         <img
-          src={BG_IMG_URL}
+          src={Wallpaper}
           className="absolute -z-10 bg-opacity-75 w-screen h-screen "
         />
       </div>
@@ -19,11 +19,14 @@ const Navbar = () => {
         style={styles}
       >
         <img
-          src={ICON_URL}
+          src={Logo}
           alt="Food Forever Logo"
           className="w-20 h-20 rounded-full"
         />
-        <div className="flex flex-1 mx-2 backdrop-blur-md rounded-md p-5" style={styles}>
+        <div
+          className="flex flex-1 mx-2 backdrop-blur-md rounded-md p-5"
+          style={styles}
+        >
           <ul className="flex flex-1  space-x-10 justify-end " id="navBarList">
             <li>
               <a>Get The App</a>

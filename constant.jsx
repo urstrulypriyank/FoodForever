@@ -1,14 +1,10 @@
-export const BG_IMG_URL =
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop";
-export const ICON_URL =
-  "https://yt3.googleusercontent.com/_BLCmxH977zmc18CwuIsrYN4r9CCmMfnSt0Tjl7KCFnYJRHAnz74huRIUqzTmvRCh_608ih3Pe8=s176-c-k-c0x00ffffff-no-rj";
+//Config Driven UI - Mock Data from API
+export const IMG_CDN =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
+export const GET_RES_API_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
 
-  //Config Driven UI - Mock Data from API
-export const IMG_CDN = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
-
-export const GET_RES_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING";
-  
 // export const SHIMMER_RES_CARDS_COUNT  = 8;
 export const restaurantList = [
   {
@@ -147,7 +143,13 @@ export const restaurantList = [
       area: "Majra    Bansal Home",
       totalRatingsString: "50+ ratings",
       cloudinaryImageId: "ousftkkaojw0itx4u3tw",
-      cuisines: ["North Indian", "South Indian", "Fast Food", "Snacks", "Beverages"],
+      cuisines: [
+        "North Indian",
+        "South Indian",
+        "Fast Food",
+        "Snacks",
+        "Beverages",
+      ],
       tags: [],
       costForTwo: 30000,
       costForTwoString: "₹300 FOR TWO",
@@ -870,7 +872,7 @@ export const restaurantList = [
       area: "Patel Nagar",
       totalRatingsString: "Too Few Ratings",
       cloudinaryImageId: "yv55fex41rwx0mtlt16q",
-      cuisines: ["South Indian","North Indian", "Snacks", "Beverages"],
+      cuisines: ["South Indian", "North Indian", "Snacks", "Beverages"],
       tags: [],
       costForTwo: 30000,
       costForTwoString: "₹300 FOR TWO",
@@ -1108,7 +1110,7 @@ export const restaurantList = [
       area: "Patel Nagar",
       totalRatingsString: "Too Few Ratings",
       cloudinaryImageId: "ox2wtrnxa7iakfefckoy",
-      cuisines: ["South Indian","North Indian", "Snacks", "Beverages"],
+      cuisines: ["South Indian", "North Indian", "Snacks", "Beverages"],
       tags: [],
       costForTwo: 30000,
       costForTwoString: "₹300 FOR TWO",
@@ -1346,7 +1348,7 @@ export const restaurantList = [
       area: "Patel Nagar",
       totalRatingsString: "Too Few Ratings",
       cloudinaryImageId: "tqpyeoahq0hqfixzkrcm",
-      cuisines: ["Desserts","North Indian", "Snacks", "Beverages"],
+      cuisines: ["Desserts", "North Indian", "Snacks", "Beverages"],
       tags: [],
       costForTwo: 30000,
       costForTwoString: "₹300 FOR TWO",
@@ -1572,6 +1574,5 @@ export const restaurantList = [
       new: false,
     },
     subtype: "basic",
-  }
+  },
 ];
-
