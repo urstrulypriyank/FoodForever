@@ -4,7 +4,7 @@ import ResturnatList from "./ResturnatList";
 
 const Body = () => {
   return (
-  <div className="flex w-screen h-screen ">
+    <div className="w-screen h-screen bg-white ">
       <SearchBar />
       <ResturnatList />
     </div>
