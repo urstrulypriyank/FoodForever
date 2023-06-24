@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const SearchBar = () => {
-  // const [first, setfirst] = useState(second)
+const SearchBar = ({ searchText, setSearchText, showFilterResturant }) => {
+  useEffect(() => {
+    console.log(searchText);
+  }, [searchText]);
   return (
     <div className=" flex flex-col justify-center m-6 p-2  ">
       <input
@@ -15,9 +17,15 @@ const SearchBar = () => {
         text-center
         max-md:w-[90vw]
         "
-        placeholder="Type Here ...."
+        placeholder={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
       />
-      <button className=" p-1 rounded-md border border-black w-32 mx-auto ">
+      <button
+        className=" p-1 rounded-md border border-black w-32 mx-auto "
+        onClick={() => {
+          showFilterResturant();
+        }}
+      >
         Search
       </button>
     </div>
