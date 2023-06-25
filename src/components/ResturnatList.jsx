@@ -12,15 +12,16 @@ const ResturnatList = () => {
   const [searchText, setSearchText] = useState(defaultSearchText);
 
   //  Functions in jsx
-  const fetchResturantData = async (url, setAllRestaurant, setRestaurant) => {
-    let data = await fetch(url);
+  const fetchResturantData = async () => {
+    let data = await fetch(GET_RES_API_URL);
     data = await data.json();
     data = data?.data?.cards[2]?.data?.data?.cards;
     setAllRestaurant(data);
     setRestaurant(data);
-    console.log(data);
+    // console.log(data);
   };
   const showFilterResturant = () => {
+    setRestaurant(allRestaurant);
     setRestaurant(
       allRestaurant?.filter((item) =>
         item.data.name.toLowerCase().includes(searchText.toLowerCase())
@@ -28,11 +29,23 @@ const ResturnatList = () => {
     );
   };
   useEffect(() => {
-    fetchResturantData(GET_RES_API_URL, setAllRestaurant, setRestaurant);
-    if (searchText === "" || searchText === defaultSearchText)
-      setRestaurant(allRestaurant);
-    console.log(allRestaurant);
+    fetchResturantData();
   }, []);
+  useEffect(() => {
+    if (
+      searchText === "" ||
+      searchText === defaultSearchText ||
+      searchText.length == 0 ||
+      searchText == "<empty string>"
+    ) {
+      console.log("condition met");
+      setRestaurant(setAllRestaurant);
+      console.log(allRestaurant);
+    }
+    //  else {
+    //   showFilterResturant();
+    // }
+  }, [searchText]);
 
   return (
     <>
@@ -41,12 +54,12 @@ const ResturnatList = () => {
         setSearchText={setSearchText}
         showFilterResturant={showFilterResturant}
       />
-      {allRestaurant.length === 0 ? (
+      {allRestaurant?.length === 0 ? (
         <h1 className="text-black text-3xl">Lodaing....</h1>
       ) : (
         <div className="flex flex-row flex-wrap justify-center">
           {restaurant?.map((restaurant) => (
-            <ResturantCard key={restaurant.data.id} {...restaurant.data} />
+            <ResturantCard key={restaurant?.data?.id} {...restaurant.data} />
           ))}
         </div>
       )}
