@@ -39,12 +39,12 @@ const ResturnatList = () => {
       searchText == "<empty string>"
     ) {
       console.log("condition met");
-      setRestaurant(setAllRestaurant);
+      setRestaurant(allRestaurant);
       console.log(allRestaurant);
     }
-    //  else {
-    //   showFilterResturant();
-    // }
+     else {
+      showFilterResturant();
+    }
   }, [searchText]);
 
   return (
