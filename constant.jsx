@@ -8,6 +8,8 @@ export const Request_policy_allow = {
   },
 };
 
+export const GET_RESTAURANT_MENU = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=15.5127952&lng=73.7688876&restaurantId="
+
 // default searchText value
 export const defaultSearchText = "Type Here ....";
 

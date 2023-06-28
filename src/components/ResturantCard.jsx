@@ -1,12 +1,18 @@
 import React from "react";
 import { IMG_CDN } from "../../constant";
-const ResturantCard = ({ name, cloudinaryImageId, costForTwoString,cusines }) => {
+
+const ResturantCard = ({
+  name,
+  cloudinaryImageId,
+  costForTwoString,
+  cusines,
+}) => {
   // console.log(cloudinaryImageId);
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow :bg-gray-800 :border-gray-700 mx-2">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow :bg-gray-800 :border-gray-700 mx-2 my-2">
       <a href="#">
         <img
-          className="rounded-t-lg"
+          className="rounded-t-lg w-[33vw] h-[43vh]"
           src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${cloudinaryImageId}`}
           alt=""
         />

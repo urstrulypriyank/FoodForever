@@ -1,36 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { restaurantList } from "../../constant";
 import ResturantCard from "./ResturantCard";
 import { GET_RES_API_URL, defaultSearchText } from "../../constant";
 import SearchBar from "./SearchBar";
-
+import { Link } from "react-router-dom";
+import { showFilterResturant } from "../../utils/helper";
+import useRestaurant from "../../utils/hooks/useRestaurant";
+import ShimmerCard from "./ShimmerCard";
 export const filterString = (textBoxValue, allRestaurantValue) => {};
 
 const ResturnatList = () => {
-  const [allRestaurant, setAllRestaurant] = useState([]);
-  const [restaurant, setRestaurant] = useState([]);
+  const allRestaurant = useRestaurant();
+  const [restaurant, setRestaurant] = useState(allRestaurant);
   const [searchText, setSearchText] = useState(defaultSearchText);
 
   //  Functions in jsx
-  const fetchResturantData = async () => {
-    let data = await fetch(GET_RES_API_URL);
-    data = await data.json();
-    data = data?.data?.cards[2]?.data?.data?.cards;
-    setAllRestaurant(data);
-    setRestaurant(data);
-    // console.log(data);
-  };
-  const showFilterResturant = () => {
-    setRestaurant(allRestaurant);
-    setRestaurant(
-      allRestaurant?.filter((item) =>
-        item.data.name.toLowerCase().includes(searchText.toLowerCase())
-      )
-    );
-  };
+
   useEffect(() => {
-    fetchResturantData();
-  }, []);
+    setRestaurant((restaurant) => {
+      if (allRestaurant === restaurant) return restaurant;
+      return allRestaurant;
+    });
+  }, [allRestaurant]);
   useEffect(() => {
     if (
       searchText === "" ||
@@ -38,12 +28,9 @@ const ResturnatList = () => {
       searchText.length == 0 ||
       searchText == "<empty string>"
     ) {
-      console.log("condition met");
       setRestaurant(allRestaurant);
-      console.log(allRestaurant);
-    }
-     else {
-      showFilterResturant();
+    } else {
+      showFilterResturant(allRestaurant, setRestaurant, searchText);
     }
   }, [searchText]);
 
@@ -54,12 +41,21 @@ const ResturnatList = () => {
         setSearchText={setSearchText}
         showFilterResturant={showFilterResturant}
       />
+
       {allRestaurant?.length === 0 ? (
-        <h1 className="text-black text-3xl">Lodaing....</h1>
+        <div className="flex flex-wrap   h-screen w-screen  justify-center">
+          {Array(9)
+            .fill("")
+            .map(() => (
+              <ShimmerCard />
+            ))}
+        </div>
       ) : (
         <div className="flex flex-row flex-wrap justify-center">
           {restaurant?.map((restaurant) => (
-            <ResturantCard key={restaurant?.data?.id} {...restaurant.data} />
+            <Link key={restaurant?.data?.id}>
+              <ResturantCard key={restaurant?.data?.id} {...restaurant.data} />
+            </Link>
           ))}
         </div>
       )}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../css/navbar.css";
 import Wallpaper from "../../assets/images/Wallpaper.webp";
 import Logo from "../../assets/icons/logo.png";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div style={styles}>
@@ -23,10 +24,14 @@ const Navbar = () => {
             id="navBarList"
           >
             <li>
-              <a>Get The App</a>
+              <Link>
+                Get The App
+              </Link>
             </li>
             <li>
-              <a>Add a resturant</a>
+              <Link to="/About">
+                About
+              </Link>
             </li>
             <li>
               <a>Sign Up</a>
