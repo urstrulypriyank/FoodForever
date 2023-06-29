@@ -46,16 +46,19 @@ const ResturnatList = () => {
         <div className="flex flex-wrap   h-screen w-screen  justify-center">
           {Array(9)
             .fill("")
-            .map((value,index) => (
+            .map((value, index) => (
               <ShimmerCard key={index} />
             ))}
         </div>
       ) : (
         <div className="flex flex-row flex-wrap justify-center">
           {restaurant?.map((restaurant) => (
-            <Link key={restaurant?.data?.id}>
-              <ResturantCard key={restaurant?.data?.id} {...restaurant.data} />
-            </Link>
+            <div
+              onClick={() => console.log("Card clicked")}
+              key={restaurant?.data?.id}
+            >
+              <ResturantCard {...restaurant.data} />
+            </div>
           ))}
         </div>
       )}
