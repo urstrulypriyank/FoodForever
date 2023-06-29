@@ -12,6 +12,7 @@ const CustomError = lazy(() => import("./src/components/CustomError"));
 // Routing specific
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ResturantMenuDynamic from "./src/components/ResturantMenuDynamic";
+import useOnline from "./utils/hooks/useOnline";
 
 const router = createBrowserRouter([
   {
@@ -44,9 +45,17 @@ const router = createBrowserRouter([
 ]);
 
 function AppLayout() {
+  const isOnline = useOnline();
   return (
     <div className=" h-screen snap-y snap-mandatory overflow-scroll overflow-y-scroll z-0">
       <div className="snap-center  ">
+        {isOnline === false ? (
+          <p className="bg-red bg-blue-800 text-white text-center">
+            You Looks Disconnected 🚀
+          </p>
+        ) : (
+          ""
+        )}
         <Navbar />
       </div>
       <div className="snap-start snap-mandatory ">
