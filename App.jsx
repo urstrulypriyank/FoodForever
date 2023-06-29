@@ -1,13 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./src/components/Navbar";
 import Body from "./src/components/Body";
 import Footer from "./src/components/Footer";
-import CustomError from "./src/components/CustomError";
+// import CustomError from "./src/components/CustomError";
 
 // Pages specific imports
-import About from "./src/components/About";
-
+// import About from "./src/components/About";
+const About = lazy(() => import("./src/components/About"));
+const CustomError = lazy(() => import("./src/components/CustomError"));
 // Routing specific
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ResturantMenuDynamic from "./src/components/ResturantMenuDynamic";
@@ -16,22 +17,29 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <CustomError />,
+    errorElement: (
+      <Suspense>
+        <CustomError />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
         element: <Body />,
       },
-      
     ],
   },
   {
     path: "/about",
-    element: <About />,
+    element: (
+      <Suspense>
+        <About />
+      </Suspense>
+    ),
   },
   {
     path: "/resturant/:id",
-    element: <ResturantMenuDynamic/>
+    element: <ResturantMenuDynamic />,
   },
 ]);
 
