@@ -46,7 +46,7 @@ const ResturnatList = () => {
         <div className="flex flex-wrap   h-screen w-screen  justify-center">
           {Array(9)
             .fill("")
-            .map((value, index) => (
+            .map((value,index) => (
               <ShimmerCard key={index} />
             ))}
         </div>
